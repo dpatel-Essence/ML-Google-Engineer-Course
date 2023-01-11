@@ -1,0 +1,120 @@
+{
+    "cells": [
+        {
+            "language": "markdown",
+            "source": [
+                "# Learning Javacript for Visualization\r\n## [Arquero](https://uwdata.github.io/arquero/)\r\nUsing the following notebook extension in VSCode - [Link](https://marketplace.visualstudio.com/items?itemName=donjayamanne.typescript-notebook)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "*First install arquero as a dependency, via npm install arquero --save or yarn add arquero. Arquero assumes Node version 12 or higher.*\r\n- Use node -v to check node version"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//import { aq, op } from '@uwdata/arquero'\r\nconst aq = require('arquero');\r\nconst {display} = require('node-kernel');\r\ndisplay.text('Hello World');\r\n\r\ndt = aq.table({\r\n  u: ['a', 'a', 'b', 'b'],\r\n  x: Int32Array.of(1, 2, 3, 4),\r\n  y: Float64Array.of(5, 6, 7, 8)\r\n})"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "Hello World"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<style> table, th, tr { text-align: left; }</style><table><thead><tr><th style=\"text-align: left;\">u</th><th style=\"text-align: right;\">x</th><th style=\"text-align: right;\">y</th></tr></thead><tbody><tr><td style=\"text-align: left;\">a</td><td style=\"text-align: right;\">1</td><td style=\"text-align: right;\">5</td></tr><tr><td style=\"text-align: left;\">a</td><td style=\"text-align: right;\">2</td><td style=\"text-align: right;\">6</td></tr><tr><td style=\"text-align: left;\">b</td><td style=\"text-align: right;\">3</td><td style=\"text-align: right;\">7</td></tr><tr><td style=\"text-align: left;\">b</td><td style=\"text-align: right;\">4</td><td style=\"text-align: right;\">8</td></tr></tbody></table>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "dt.view()"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "TypeError",
+                                "message": "dt.view is not a function",
+                                "stack": "    at <Cell 4> [1, 2]\n    at <Cell 4> [4, 46]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)\n    at Object.runInNewContext (node:vm:306:38)\n    at C (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:113345)\n    at t.execCode (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:114312)\n    at k.<anonymous> (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:142156)\n    at k.emit (node:events:513:28)\n    at k.emit (node:domain:489:12)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "[dt.numCols(), dt.numRows()]"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "[",
+                                "  \u001b[33m3\u001b[39m,",
+                                "  \u001b[33m4\u001b[39m",
+                                "]"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
