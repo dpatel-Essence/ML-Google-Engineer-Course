@@ -10,14 +10,176 @@
         {
             "language": "markdown",
             "source": [
-                "*First install arquero as a dependency, via npm install arquero --save or yarn add arquero. Arquero assumes Node version 12 or higher.*\r\n- Use node -v to check node version"
+                "*First install arquero as a dependency, via npm install arquero --save or yarn add arquero. Arquero assumes Node version 12 or higher.*\r\n- Use node -v to check node version\r\n- Update package.json root file to add\r\n  ```,\"type\":\"module\"```"
             ],
             "outputs": []
         },
         {
+            "language": "html",
+            "source": [
+                "<!--<script src=\"https://d3js.org/d3.v7.min.js\"></script> -->"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<!--<script src=\"https://d3js.org/d3.v7.min.js\"></script> -->"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "shellscript",
+            "source": [
+                "node -v\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "v18.12.1\r",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "powershell",
+            "source": [
+                "npm install d3\r\nnpm install svg\r\nnpm install arquero"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                "up to date, audited 79 packages in 532ms",
+                                "",
+                                "found 0 vulnerabilities",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "powershell",
+            "source": [
+                "npm v arquero"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                "arquero@5.1.0 | BSD-3-Clause | deps: 3 | versions: 74",
+                                "Query processing and transformation of array-backed data tables.",
+                                "",
+                                "keywords: data, query, database, table, dataframe, transform, arrays",
+                                "",
+                                "dist",
+                                ".tarball: https://registry.npmjs.org/arquero/-/arquero-5.1.0.tgz",
+                                ".shasum: 16c4971ce1a5d0cf60daad7a4ae046c3d34cf47a",
+                                ".integrity: sha512-HD8xWI7gRmGjGXES7W0jYQSEkKj02yYMbX8ZirtVq9AYxqEDIPwp+CIEnxzdGTXAahNvm2q7PUg/hohULCbtPg==",
+                                ".unpackedSize: 2.5 MB",
+                                "",
+                                "dependencies:",
+                                "acorn: ^8.8.0",
+                                "apache-arrow: ^9.0.0",
+                                "node-fetch: ^2.6.7",
+                                "",
+                                "maintainers:",
+                                "- jheer <jeffrey.heer@gmail.com>",
+                                "",
+                                "dist-tags:",
+                                "latest: 5.1.0",
+                                "",
+                                "published 5 months ago by jheer <jeffrey.heer@gmail.com>",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Import D3 into environment"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "powershell",
+            "source": [
+                "node AQ_testscript2.js"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stderr",
+                            "value": [
+                                "(node:12096) Warning: To load an ES module, set \"type\": \"module\" in the package.json or use the .mjs extension.",
+                                "(Use `node --trace-warnings ...` to show where the warning was created)",
+                                "c:\\Users\\Admin\\Documents\\GitHub\\ML-Google-Engineer-Course\\AQ_testscript2.js:4",
+                                "import * as d3 from 'd3'",
+                                "^^^^^^",
+                                "",
+                                "SyntaxError: Cannot use import statement outside a module",
+                                "    at Object.compileFunction (node:vm:360:18)",
+                                "    at wrapSafe (node:internal/modules/cjs/loader:1088:15)",
+                                "    at Module._compile (node:internal/modules/cjs/loader:1123:27)",
+                                "    at Module._extensions..js (node:internal/modules/cjs/loader:1213:10)",
+                                "    at Module.load (node:internal/modules/cjs/loader:1037:32)",
+                                "    at Module._load (node:internal/modules/cjs/loader:878:12)",
+                                "    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:81:12)",
+                                "    at node:internal/main/run_main_module:23:47",
+                                "",
+                                "Node.js v18.12.1",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "language": "javascript",
             "source": [
-                "//import { aq, op } from '@uwdata/arquero'\r\nconst aq = require('arquero');\r\nconst {display} = require('node-kernel');\r\ndisplay.text('Hello World');\r\n\r\ndt = aq.table({\r\n  u: ['a', 'a', 'b', 'b'],\r\n  x: Int32Array.of(1, 2, 3, 4),\r\n  y: Float64Array.of(5, 6, 7, 8)\r\n})"
+                "const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));\r\n//import * as d3 from 'https://d3js.org/d3.v7.min.js';\r\nconst aq = (...args) => import('arquero').then(({default: fetch}) => fetch(...args));\r\nconst svg = (...args) => import('svg').then(({default: fetch}) => fetch(...args));\r\nconst vm = require('vm');"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//import { aq, op } from '@uwdata/arquero'\r\nconst aq = require('arquero');\r\nconst {display} = require('node-kernel');\r\ndisplay.text('Hello World');\r\n\r\ndt = aq.table({\r\n  u: ['a', 'a', 'b', 'b'],\r\n  x: Int32Array.of(1, 2, 3, 4),\r\n  y: Float64Array.of(5, 6, 7, 8)\r\n})\r\n//.slice(1)"
             ],
             "outputs": [
                 {
@@ -56,7 +218,7 @@
         {
             "language": "javascript",
             "source": [
-                "dt.view()"
+                "dt.slice(0)"
             ],
             "outputs": [
                 {
@@ -73,12 +235,10 @@
                 {
                     "items": [
                         {
-                            "mime": "application/vnd.code.notebook.error",
-                            "value": {
-                                "name": "TypeError",
-                                "message": "dt.view is not a function",
-                                "stack": "    at <Cell 4> [1, 2]\n    at <Cell 4> [4, 46]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)\n    at Object.runInNewContext (node:vm:306:38)\n    at C (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:113345)\n    at t.execCode (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:114312)\n    at k.<anonymous> (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:142156)\n    at k.emit (node:events:513:28)\n    at k.emit (node:domain:489:12)"
-                            }
+                            "mime": "text/html",
+                            "value": [
+                                "<style> table, th, tr { text-align: left; }</style><table><thead><tr><th style=\"text-align: left;\">u</th><th style=\"text-align: right;\">x</th><th style=\"text-align: right;\">y</th></tr></thead><tbody><tr><td style=\"text-align: left;\">a</td><td style=\"text-align: right;\">1</td><td style=\"text-align: right;\">5</td></tr><tr><td style=\"text-align: left;\">a</td><td style=\"text-align: right;\">2</td><td style=\"text-align: right;\">6</td></tr><tr><td style=\"text-align: left;\">b</td><td style=\"text-align: right;\">3</td><td style=\"text-align: right;\">7</td></tr><tr><td style=\"text-align: left;\">b</td><td style=\"text-align: right;\">4</td><td style=\"text-align: right;\">8</td></tr></tbody></table>"
+                            ]
                         }
                     ]
                 }
@@ -110,6 +270,448 @@
                                 "  \u001b[33m3\u001b[39m,",
                                 "  \u001b[33m4\u001b[39m",
                                 "]"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "const dt2 = await aq.loadCSV('data/test2.csv')\r\n\r\nconst aqData =\r\ndt2\r\n.slice(dt2.numRows()-15)\r\n.select('Name','AVG')\r\n.groupby('Name')\r\n.derive({value: d => d.AVG *0.5})\r\n.ungroup()\r\n\r\ndt2\r\n.slice(dt2.numRows()-15)\r\n.select('Name','AVG')\r\n.groupby('Name')\r\n.derive({value: d => d.AVG *0.5})\r\n.ungroup()\r\n"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<style> table, th, tr { text-align: left; }</style><table><thead><tr><th style=\"text-align: left;\">Name</th><th style=\"text-align: right;\">AVG</th><th style=\"text-align: right;\">value</th></tr></thead><tbody><tr><td style=\"text-align: left;\">Billy Hamilton</td><td style=\"text-align: right;\">0.201</td><td style=\"text-align: right;\">0.1005</td></tr><tr><td style=\"text-align: left;\">Jake Cave</td><td style=\"text-align: right;\">0.224</td><td style=\"text-align: right;\">0.1120</td></tr><tr><td style=\"text-align: left;\">Guillermo Heredia</td><td style=\"text-align: right;\">0.228</td><td style=\"text-align: right;\">0.1140</td></tr><tr><td style=\"text-align: left;\">Harold Castro</td><td style=\"text-align: right;\">0.260</td><td style=\"text-align: right;\">0.1300</td></tr><tr><td style=\"text-align: left;\">Magneuris Sierra</td><td style=\"text-align: right;\">0.237</td><td style=\"text-align: right;\">0.1185</td></tr><tr><td style=\"text-align: left;\">Jared Oliva</td><td style=\"text-align: right;\">0.227</td><td style=\"text-align: right;\">0.1135</td></tr><tr><td style=\"text-align: left;\">Colin Moran</td><td style=\"text-align: right;\">0.253</td><td style=\"text-align: right;\">0.1265</td></tr><tr><td style=\"text-align: left;\">Dexter Fowler</td><td style=\"text-align: right;\">0.220</td><td style=\"text-align: right;\">0.1100</td></tr><tr><td style=\"text-align: left;\">Jarrod Dyson</td><td style=\"text-align: right;\">0.218</td><td style=\"text-align: right;\">0.1090</td></tr><tr><td style=\"text-align: left;\">Scott Schebler</td><td style=\"text-align: right;\">0.203</td><td style=\"text-align: right;\">0.1015</td></tr><tr><td style=\"text-align: left;\">Alex Blandino</td><td style=\"text-align: right;\">0.207</td><td style=\"text-align: right;\">0.1035</td></tr><tr><td style=\"text-align: left;\">Stephen Piscotty</td><td style=\"text-align: right;\">0.229</td><td style=\"text-align: right;\">0.1145</td></tr><tr><td style=\"text-align: left;\">Josh Reddick</td><td style=\"text-align: right;\">0.243</td><td style=\"text-align: right;\">0.1215</td></tr><tr><td style=\"text-align: left;\">Albert Pujols</td><td style=\"text-align: right;\">0.237</td><td style=\"text-align: right;\">0.1185</td></tr><tr><td style=\"text-align: left;\">Miguel Cabrera</td><td style=\"text-align: right;\">0.251</td><td style=\"text-align: right;\">0.1255</td></tr></tbody></table>"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "height = 280\r\nmargin = Object {\r\n    top: 20\r\n    right: 10\r\n    bottom: 10\r\n    left: 40\r\n  }"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "xscale = domain => d3.scaleLinear()\r\n  .domain(domain)\r\n  .range([margin.left + 10, width - margin.right])"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "\u001b[36m[Function: xscale]\u001b[39m"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "yscale = domain => d3.scaleBand()\r\n  .domain(domain)\r\n  .rangeRound([margin.top, height - margin.bottom])\r\n  .padding(0.1)  "
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "\u001b[36m[Function: yscale]\u001b[39m"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "xaxis = xscale => {\r\n    return g => g\r\n      .attr('transform', `translate(0,${margin.top})`)\r\n      .call(d3.axisTop(xscale).ticks(null, '%'))\r\n      .call(g => g.selectAll('.tick line').clone()\r\n            .attr('stroke-opacity', 0.1)\r\n            .attr('y2', height - margin.bottom - margin.top))\r\n      .call(g => g.selectAll('.domain').remove());\r\n  }"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "\u001b[36m[Function: xaxis]\u001b[39m"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "yaxis = yscale => {\r\n    return g => g\r\n      .attr('transform', `translate(${margin.left},0)`)\r\n      .call(d3.axisLeft(yscale))\r\n      .call(g => g.selectAll('.tick line').clone()\r\n            .attr('stroke-opacity', 0.1)\r\n            .attr('x2', width - margin.right - margin.left))\r\n      .call(g => g.selectAll('.domain').remove());\r\n  }"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "\u001b[36m[Function: yaxis]\u001b[39m"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "### Let's code up the chart"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "domains = aqData.rollup({\r\n  x: d => [op.min(d.value), op.max(d.value)*1.1], // [min, max] domain array\r\n  y: d => op.array_agg_distinct(d.Name) // array of unique values\r\n})\r\n.objects()[0] // no groups, so just pull the first result object"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "text/plain",
+                            "value": [
+                                "{",
+                                "  x: [",
+                                "    \u001b[33m0.1005\u001b[39m,",
+                                "    \u001b[33m0.14300000000000002\u001b[39m",
+                                "  ],",
+                                "  y: [",
+                                "    \u001b[32m'Billy Hamilton'\u001b[39m,",
+                                "    \u001b[32m'Jake Cave'\u001b[39m,",
+                                "    \u001b[32m'Guillermo Heredia'\u001b[39m,",
+                                "    \u001b[32m'Harold Castro'\u001b[39m,",
+                                "    \u001b[32m'Magneuris Sierra'\u001b[39m,",
+                                "    \u001b[32m'Jared Oliva'\u001b[39m,",
+                                "    \u001b[32m'Colin Moran'\u001b[39m,",
+                                "    \u001b[32m'Dexter Fowler'\u001b[39m,",
+                                "    \u001b[32m'Jarrod Dyson'\u001b[39m,",
+                                "    \u001b[32m'Scott Schebler'\u001b[39m,",
+                                "    \u001b[32m'Alex Blandino'\u001b[39m,",
+                                "    \u001b[32m'Stephen Piscotty'\u001b[39m,",
+                                "    \u001b[32m'Josh Reddick'\u001b[39m,",
+                                "    \u001b[32m'Albert Pujols'\u001b[39m,",
+                                "    \u001b[32m'Miguel Cabrera'\u001b[39m",
+                                "  ]",
+                                "}"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//aqData.numRows();\r\n//indices = d3.range(0,aqData.numRows());\r\n//let indices = d3.range(0, 4,1);\r\nlet indices = Array.from({length: aqData.numRows()}, (_, i) => i + 1);\r\nconsole.log(indices); "
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "[",
+                                "   1,  2,  3,  4,  5,  6,",
+                                "   7,  8,  9, 10, 11, 12,",
+                                "  13, 14, 15",
+                                "]",
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "powershell",
+            "source": [
+                "npm i d3 "
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                "up to date, audited 79 packages in 499ms",
+                                "",
+                                "found 0 vulnerabilities",
+                                ""
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "//import * as d3 from 'd3'\r\n//d3.range(10,15)\r\nconst x = d3\r\nx.range(10,15)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "Error",
+                                "message": "require() of ES Module c:\\Users\\Admin\\Documents\\GitHub\\ML-Google-Engineer-Course\\node_modules\\d3\\src\\index.js not supported.\nInstead change the require of index.js in null to a dynamic import() which is available in all CommonJS modules.",
+                                "stack": "node:internal/modules/cjs/loader:1210\n      throw err;\n      ^\n\nError [ERR_REQUIRE_ESM]: require() of ES Module c:\\Users\\Admin\\Documents\\GitHub\\ML-Google-Engineer-Course\\node_modules\\d3\\src\\index.js not supported.\nInstead change the require of index.js in null to a dynamic import() which is available in all CommonJS modules.\n    at _._load (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:115372)\n    at <Cell 23> [1, 32]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)\n    at Object.runInNewContext (node:vm:306:38)\n    at C (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:113345)\n    at t.execCode (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:114312)\n    at k.<anonymous> (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:142156)\n    at k.emit (node:events:513:28)\n    at k.emit (node:domain:489:12)\n    at e.exports.P (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:184430)\n    at e.exports.emit (node:events:513:28)\n    at e.exports.emit (node:domain:489:12)\n    at e.exports.dataMessage (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:165581)\n    at e.exports.getData (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:164763)\n    at e.exports.startLoop (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:161624)\n    at e.exports._write (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:160979)\n    at Socket.R (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:184956)\n    at Socket.emit (node:events:513:28)\n    at Socket.emit (node:domain:489:12)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "d3.range(1,15)"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "TypeError",
+                                "message": "d3.range is not a function",
+                                "stack": "    at <Cell 22> [1, 2]\n    at <Cell 22> [4, 46]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)\n    at Object.runInNewContext (node:vm:306:38)\n    at C (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:113345)\n    at t.execCode (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:114312)\n    at k.<anonymous> (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:142156)\n    at k.emit (node:events:513:28)\n    at k.emit (node:domain:489:12)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "javascript",
+            "source": [
+                "chart2a = {\r\n    const x = xscale(domains.x);\r\n    const y = yscale(domains.y);\r\n    const svg = d3.create('svg').attr('viewBox', [0, 0, width, height]);\r\n  }\r\n\r\n  d3.create('svg')\r\n  .attr('viewBox', [0, 0, width, height])"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.stdout",
+                            "value": [
+                                "",
+                                ""
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "items": [
+                        {
+                            "mime": "application/vnd.code.notebook.error",
+                            "value": {
+                                "name": "TypeError",
+                                "message": "d3.scaleLinear is not a function",
+                                "stack": "    at xscale (<Cell 13> [1, 6])\n    at <Cell 20> [2, 10]\n    at <Cell 20> [10, 46]\n    at Script.runInContext (node:vm:141:12)\n    at Script.runInNewContext (node:vm:146:17)\n    at Object.runInNewContext (node:vm:306:38)\n    at C (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:113345)\n    at t.execCode (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:114312)\n    at k.<anonymous> (c:\\Users\\Admin\\.vscode\\extensions\\donjayamanne.typescript-notebook-2.0.6\\out\\extension\\server\\index.js:2:142156)\n    at k.emit (node:events:513:28)"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "## [Episode 1](https://vizhub.com/forum/t/episode-1-svg-fundamentals/111)"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "markdown",
+            "source": [
+                "[Using this youtube vid](https://www.youtube.com/watch?app=desktop&v=xkBheRZTkaw)\r\n\r\n### SVG - Scalable Vector Graphics\r\n### CSS - Cascading Style Sheets"
+            ],
+            "outputs": []
+        },
+        {
+            "language": "html",
+            "source": [
+                "<!DOCTYPE html>\r\n<html>\r\n  <head>\r\n    <title>SVG Fundamentals</title>\r\n    <style>\r\n      body {\r\n        margin: 0;\r\n        overflow: hidden;\r\n      }\r\n    </style>\r\n  </head>\r\n  <body>\r\n    <svg width=\"960\" height=\"500\">\r\n      <!-- overlapping circles -->\r\n\r\n      <circle cx=\"150\" cy=\"50\" r=\"50\" fill=\"red\"></circle>\r\n      <circle cx=\"150\" cy=\"50\" r=\"30\" fill=\"green\"></circle>\r\n\r\n      <!--\r\n      <rect\r\n        x=\"200\"\r\n        y=\"100\"\r\n        width=\"400\"\r\n        height=\"200\"\r\n        fill=\"yellow\"\r\n        stroke=\"navy\"\r\n        stroke-width=\"10\"\r\n      />-->\r\n\r\n      <line\r\n        x1=\"0\"\r\n        y1=\"0\"\r\n        x2=\"100\"\r\n        y2=\"100\"\r\n        stroke=\"navy\"\r\n        stroke-width=\"10\"\r\n      ></line>\r\n      <path\r\n        d=\"M351.54,120.92H78.46c-3.31,0-6-2.69-6-6s2.69-6,6-6h273.08c3.31,0,6,2.69,6,6S354.85,120.92,351.54,120.92z\"\r\n      ></path>\r\n\r\n      <path\r\n        fill=\"none\"\r\n        d=\"M 200 200 L300 300 l0 100\"\r\n        stroke=\"black\"\r\n        stroke-width=\"10\"\r\n      ></path>\r\n    </svg>\r\n  </body>\r\n</html>"
+            ],
+            "outputs": [
+                {
+                    "items": [
+                        {
+                            "mime": "text/html",
+                            "value": [
+                                "<!DOCTYPE html>\r",
+                                "<html>\r",
+                                "  <head>\r",
+                                "    <title>SVG Fundamentals</title>\r",
+                                "    <style>\r",
+                                "      body {\r",
+                                "        margin: 0;\r",
+                                "        overflow: hidden;\r",
+                                "      }\r",
+                                "    </style>\r",
+                                "  </head>\r",
+                                "  <body>\r",
+                                "    <svg width=\"960\" height=\"500\">\r",
+                                "      <!-- overlapping circles -->\r",
+                                "\r",
+                                "      <circle cx=\"150\" cy=\"50\" r=\"50\" fill=\"red\"></circle>\r",
+                                "      <circle cx=\"150\" cy=\"50\" r=\"30\" fill=\"green\"></circle>\r",
+                                "\r",
+                                "      <!--\r",
+                                "      <rect\r",
+                                "        x=\"200\"\r",
+                                "        y=\"100\"\r",
+                                "        width=\"400\"\r",
+                                "        height=\"200\"\r",
+                                "        fill=\"yellow\"\r",
+                                "        stroke=\"navy\"\r",
+                                "        stroke-width=\"10\"\r",
+                                "      />-->\r",
+                                "\r",
+                                "      <line\r",
+                                "        x1=\"0\"\r",
+                                "        y1=\"0\"\r",
+                                "        x2=\"100\"\r",
+                                "        y2=\"100\"\r",
+                                "        stroke=\"navy\"\r",
+                                "        stroke-width=\"10\"\r",
+                                "      ></line>\r",
+                                "      <path\r",
+                                "        d=\"M351.54,120.92H78.46c-3.31,0-6-2.69-6-6s2.69-6,6-6h273.08c3.31,0,6,2.69,6,6S354.85,120.92,351.54,120.92z\"\r",
+                                "      ></path>\r",
+                                "\r",
+                                "      <path\r",
+                                "        fill=\"none\"\r",
+                                "        d=\"M 200 200 L300 300 l0 100\"\r",
+                                "        stroke=\"black\"\r",
+                                "        stroke-width=\"10\"\r",
+                                "      ></path>\r",
+                                "    </svg>\r",
+                                "  </body>\r",
+                                "</html>"
                             ]
                         }
                     ]
